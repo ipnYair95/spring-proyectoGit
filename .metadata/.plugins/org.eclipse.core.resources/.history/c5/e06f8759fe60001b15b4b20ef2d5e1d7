@@ -1,0 +1,5 @@
+package com.proyecto.cct.models.repository;
+
+public interface SalonRepository {
+
+}

@@ -1,0 +1,33 @@
+spring.datasource.url=jdbc:mariadb://localhost:3306/db_micro_nivel_educativo?useSSL=false
+spring.datasource.username=root
+spring.datasource.password=admin
+spring.datasource.driver-class-name=org.mariadb.jdbc.Driver
+
+spring.jpa.database-platform=org.hibernate.dialect.MariaDB103Dialect
+
+spring.jpa.hibernate.ddl-auto=create-drop
+spring.jpa.generate-ddl=true
+#spring.jpa.show-sql=true
+
+#prevenir el error DB_NAME.hibernate_sequence no existe
+spring.jpa.hibernate.use-new-id-generator-mappings=false
+
+
+logging.level.org.hibernate.SQL=debug
+
+
+#warning de posgres
+#spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation=true
+
+##### configuracion del microservicio
+
+spring.application.name=microservicio-nivel-educativo
+#puerto aleatorio
+server.port=${PORT:59437}
+eureka.instance.instance-id=${spring.application.name}:${random.value}
+eureka.client.service-url.defaultZone=http://localhost:8761/eureka
+
+spring.cloud.loadbalancer.ribbon.enabled=false
+#deshabilitamos ribon porq feing lo integra
+
+

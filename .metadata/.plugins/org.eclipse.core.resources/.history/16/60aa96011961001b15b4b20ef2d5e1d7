@@ -1,0 +1,5 @@
+package com.proyecto.cct.services;
+
+public class SalonServiceImpl {
+
+}

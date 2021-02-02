@@ -1,0 +1,10 @@
+package com.proyecto.cct.models.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.proyecto.cct.models.entity.NivelEscuela;
+
+public interface NivelEscuelaRepository extends JpaRepository<NivelEscuela, Long>{
+	
+
+}

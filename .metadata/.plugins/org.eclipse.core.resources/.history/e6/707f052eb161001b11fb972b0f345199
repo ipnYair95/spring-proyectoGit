@@ -1,0 +1,40 @@
+package com.proyecto.cct.models.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+@Entity
+@Table( name = "nivel_escuela")
+public class NivelEscuela {
+	
+	@Id
+	@NotNull
+	private Long idNivel;
+	
+	@ManyToOne
+	private CentroDeTrabajo centroDeTrabajo;
+
+	public Long getIdNivel() {
+		return idNivel;
+	}
+
+	public void setIdNivel(Long idNivel) {
+		this.idNivel = idNivel;
+	}
+
+	public CentroDeTrabajo getCentroDeTrabajo() {
+		return centroDeTrabajo;
+	}
+
+	public void setCentroDeTrabajo(CentroDeTrabajo centroDeTrabajo) {
+		this.centroDeTrabajo = centroDeTrabajo;
+	}
+	
+	
+	
+	
+
+}

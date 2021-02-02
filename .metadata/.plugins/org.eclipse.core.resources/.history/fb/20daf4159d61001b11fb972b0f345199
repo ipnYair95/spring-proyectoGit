@@ -1,0 +1,5 @@
+package com.proyecto.cct.controllers;
+
+public class NivelEscuelaController {
+
+}

@@ -1,0 +1,13 @@
+package com.proyecto.cct.services;
+
+import com.proyecto.cct.models.entity.Salon;
+
+public class SalonServiceImpl implements SalonService{
+
+	@Override
+	public Salon buscarPorId(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

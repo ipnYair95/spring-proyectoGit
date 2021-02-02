@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="subTutorjrxml" pageWidth="400" pageHeight="100" columnWidth="400" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="86ec87c9-de2e-451d-b8d2-29f92f1336f2">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="parentesco" class="java.lang.String"/>
+	<detail>
+		<band height="100" splitType="Stretch">
+			<textField>
+				<reportElement x="90" y="40" width="180" height="20" uuid="bb1b5815-d35d-45eb-bca7-8bb0211b4f95"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Nombre"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="74" y="10" width="210" height="30" uuid="49dbb4c9-7c6c-4936-a0f0-27034182dfda"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="40" width="90" height="20" uuid="7b35f8ae-58dd-4bbc-a73a-54cede5a5caf"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Parentesco"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="296" y="10" width="100" height="30" uuid="fb4684f4-d268-44e7-9f70-84ca9651b5fc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{parentesco}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="0" y="0" width="70" height="70" uuid="f936101a-9ce1-4f9f-b09f-9dd9072f083e"/>
+				<imageExpression><![CDATA["https://i.ibb.co/nrRW5LN/tutor.png"]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+</jasperReport>

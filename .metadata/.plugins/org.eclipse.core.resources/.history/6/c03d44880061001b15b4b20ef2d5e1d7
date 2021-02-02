@@ -1,0 +1,80 @@
+package com.proyecto.cct.models.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+
+import com.fasterxml.jackson.annotation.JsonIgnore; 
+
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+@Entity
+@Table(name = "salon")
+public class Salon {
+
+	@Id
+	@NotBlank
+	private String id;
+
+	
+	@Pattern(regexp = "^([0-9]){2}$", message = "Formato Ej: 01 o 30")
+	private Long capacidad;
+
+	@NotBlank
+	@Pattern(regexp = "^([^a-z\\s]+ ?)+$", message = "Solo mayusculas")
+	private String estatus;
+
+	@ManyToOne
+	@JsonIgnore
+	private CentroDeTrabajo centroDeTrabajo;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public Long getCapacidad() {
+		return capacidad;
+	}
+
+	public void setCapacidad(Long capacidad) {
+		this.capacidad = capacidad;
+	}
+
+	public String getEstatus() {
+		return estatus;
+	}
+
+	public void setEstatus(String estatus) {
+		this.estatus = estatus;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+
+		// comparacion de collection
+		if (this == obj) {
+			return true; // son iguales
+		}
+
+		// si no es una instancia
+		if (!(obj instanceof Salon)) {
+			return false;
+		}
+
+		// comparamos los id
+
+		Salon c = (Salon) obj;
+
+		return this.id != null && this.id.equals(c.getId());
+
+	}
+
+}

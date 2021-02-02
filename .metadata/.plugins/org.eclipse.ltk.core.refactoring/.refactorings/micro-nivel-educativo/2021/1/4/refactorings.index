@@ -1,0 +1,22 @@
+1610994105551	Rename type 'nivel'
+1611006860106	Rename method 'enviarError'
+1611014266823	Rename type 'Asignatua'
+1611029242480	Rename field 'carrera'
+1611035898367	Rename local variable 'tutor'
+1611170744904	Copy compilation unit
+1611171121197	Rename field 'cs'
+1611171130446	Rename field 'ns'
+1611171194580	Rename field 'cr'
+1611171219334	Rename field 'ns'
+1611171261880	Delete element
+1611171275063	Copy compilation unit
+1611171327864	Rename field 'carreraService'
+1611171369097	Rename field 'nivelService'
+1611173914727	Copy compilation unit
+1611173930898	Copy compilation unit
+1611189710614	Copy compilation unit
+1611189747356	Copy compilation unit
+1611189776848	Rename field 'cr'
+1611189897656	Copy compilation unit
+1611190042607	Rename field 'cicloEscolarService'
+1611190071269	Rename field 'carreraService'

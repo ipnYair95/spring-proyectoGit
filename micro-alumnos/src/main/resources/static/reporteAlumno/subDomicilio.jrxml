@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="subDomicilio" printOrder="Horizontal" pageWidth="400" pageHeight="200" columnWidth="400" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="646104e3-eee3-4081-9b33-8bf6bd4864e2">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="estado" class="java.lang.String"/>
+	<field name="municipio" class="java.lang.String"/>
+	<field name="colonia" class="java.lang.String"/>
+	<field name="exterior" class="java.lang.String"/>
+	<field name="interior" class="java.lang.String"/>
+	<field name="codigoPostal" class="java.lang.String"/>
+	<field name="entreCalles" class="java.lang.String"/>
+	<field name="referencia" class="java.lang.String"/>
+	<detail>
+		<band height="160">
+			<image>
+				<reportElement x="0" y="0" width="100" height="100" uuid="238641a6-ba48-4b4e-9873-ec1f010347a0"/>
+				<imageExpression><![CDATA["https://i.ibb.co/7rPFYmf/casa.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="150" y="30" width="100" height="20" uuid="7c6d2a1e-7d88-4f49-8a71-6d5ae721b3cd"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Estado"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="30" width="100" height="20" uuid="b3debbcc-0401-4bee-9e8d-87ad4c49d4db"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Municipio"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="240" y="79" width="60" height="20" uuid="c26549c2-e3f6-44fd-977c-5ffbdb9fefe5"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Ext"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="320" y="79" width="60" height="20" uuid="39fcd5c2-2404-4d73-b005-d932ca568100"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Int"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="45" y="130" width="60" height="20" uuid="022aae1b-b057-41c8-b15a-08aa18944250"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["C.P."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="130" width="90" height="20" uuid="3dff841f-6adb-47ff-b394-b586209699da"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Entre calles"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="273" y="130" width="90" height="20" uuid="4f2091ad-b214-439f-9dda-b88640832995"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Referencia"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="10" width="100" height="20" uuid="6c5174e9-2586-4b40-9926-cde2947f5090"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{estado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="10" width="100" height="20" uuid="ce3bfb12-e545-445b-810b-b32456e7e334"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{municipio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="79" width="90" height="20" uuid="8abfe501-887a-4244-a8f7-56040fffb9f5"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Colonia"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="125" y="59" width="100" height="20" uuid="e8b59167-cd6c-42f2-8237-cdd36e033a1e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{colonia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="230" y="59" width="75" height="20" uuid="ed3c2225-3186-40e9-898f-d9f21d10dc08"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{exterior}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="310" y="60" width="75" height="20" uuid="a14ea866-556c-4940-8950-aa11643ba2f8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{interior}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="18" y="110" width="105" height="20" uuid="60eec935-4ff7-4238-9df6-ddc22056cc4e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{codigoPostal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="140" y="110" width="105" height="20" uuid="d3ac0253-52ad-48df-86a7-7332a0a06725"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{entreCalles}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="258" y="110" width="105" height="20" uuid="e0f57852-f72e-446f-bd1a-610f329e40a5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{referencia}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

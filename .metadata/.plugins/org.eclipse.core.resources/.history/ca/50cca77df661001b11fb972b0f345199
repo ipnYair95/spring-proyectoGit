@@ -1,0 +1,5 @@
+package com.proyecto.alumnos.models.repository;
+
+public interface HistorialRepository {
+
+}

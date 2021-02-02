@@ -1,0 +1,17 @@
+1611620430256	Move compilation unit
+1611621092334	Rename method 'buscarPorId'
+1611621178267	Rename type 'CctRepositoty'
+1611621278896	Rename package 'com.proyecto.cct.models.services'
+1611621294760	Rename package 'com.proyecto.cct.models'
+1611792540077	Rename field 'Id'
+1611800544220	Move compilation unit
+1611800569726	Rename type 'ClienteFeing'
+1611800660944	Rename type 'Contador'
+1611801092633	Copy file
+1611804318614	Copy compilation unit
+1611860637441	Copy compilation unit
+1611860664991	Rename type 'CctServiceImpl'
+1611861948368	Copy compilation unit
+1611863078791	Delete elements
+1611881239238	Rename method 'buscarPorCct'
+1611902189639	Copy compilation unit
