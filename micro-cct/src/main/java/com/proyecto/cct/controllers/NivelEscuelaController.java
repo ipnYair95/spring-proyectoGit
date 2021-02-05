@@ -53,7 +53,7 @@ public class NivelEscuelaController {
 	private static Logger log = LoggerFactory.getLogger(NivelEscuelaController.class);
 
 	@GetMapping("/{idEscuela}/listar")
-	public ResponseEntity<?> listar(@PathVariable(name = "idEscuela") Long IdEscuela) {
+	public ResponseEntity<?> listarIdModalidades(@PathVariable(name = "idEscuela") Long IdEscuela) {
 		return ResponseEntity.ok().body(this.nivelEscuelaService.obtenerIdNivel(IdEscuela));
 	}
 

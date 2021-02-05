@@ -62,7 +62,7 @@ public class GradoController {
 			gradoDb = this.gradoService.buscarPorId(id);
 
 			if (gradoDb == null) {
-				return this.enviarMensaje("El ciclo escolar no existe", HttpStatus.NOT_FOUND);
+				return this.enviarMensaje("El grado no existe", HttpStatus.NOT_FOUND);
 			}
 
 		} catch (DataAccessException e) {

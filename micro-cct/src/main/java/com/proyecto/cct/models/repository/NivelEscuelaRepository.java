@@ -10,9 +10,10 @@ import com.proyecto.cct.models.entity.NivelEscuela;
 public interface NivelEscuelaRepository extends JpaRepository<NivelEscuela, Long>{	
 	
 	
-	@Query( "select n.id from NivelEscuela n "
+	
+	@Query( "select n from NivelEscuela n "
 			+ " join n.centroDeTrabajo cct "
 			+ " where cct.id = ?1 " ) 
-	public List<Long>  findNivelesIdByIdEscuela( Long id );
+	public List<NivelEscuela>  findNivelesIdByIdEscuela( Long id );
 
 }

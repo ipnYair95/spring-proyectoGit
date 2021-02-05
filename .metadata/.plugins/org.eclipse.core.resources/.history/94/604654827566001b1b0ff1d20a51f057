@@ -1,0 +1,13 @@
+package com.proyecto.cct.models.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.proyecto.cct.models.entity.Grupo;
+
+public interface GrupoRepository  extends JpaRepository<Grupo, Long> {
+
+	@Query( "select g from Grupo g join g.salon s where s.id = ?1" )
+	public Optional<Grupo> salonAsignadoEnCiclo( String idSalon );
+	
+}

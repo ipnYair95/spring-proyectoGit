@@ -42,7 +42,7 @@ public class NivelEscuelaServiceImpl  implements NivelEscuelaService {
 	}
 
 	@Override
-	public List<Long> obtenerIdNivel(Long idEscuela) {
+	public List<NivelEscuela> obtenerIdNivel(Long idEscuela) {
 		return this.nivelER.findNivelesIdByIdEscuela(idEscuela);
 	}
 

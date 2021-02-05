@@ -8,7 +8,7 @@ import com.proyecto.cct.models.entity.Salon;
 
 public interface SalonRepository extends JpaRepository<Salon, String> {
 
-
+	
 	
 	
 

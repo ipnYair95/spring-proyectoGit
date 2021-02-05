@@ -15,6 +15,6 @@ public interface NivelEscuelaService {
 
 	public void eliminar(Long id);
 	
-	public List<Long> obtenerIdNivel( Long idEscuela );
+	public List<NivelEscuela> obtenerIdNivel( Long idEscuela );
 
 }
