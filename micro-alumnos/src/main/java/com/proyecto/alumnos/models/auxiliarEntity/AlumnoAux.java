@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.proyecto.alumnos.models.entity.Alumno;
+import com.proyecto.alumnos.models.entity.Domicilio;
 import com.proyecto.alumnos.models.entity.Tutor;
 
 public class AlumnoAux {
@@ -170,7 +171,7 @@ public class AlumnoAux {
 		this.domicilio.add( new DomicilioAux() );
 		
 		this.domicilio.forEach( d ->{
-			d.replaceAll( alumno.getDomicilio() );
+			d.replaceAll( alumno.getDomicilio() == null ? new Domicilio() : alumno.getDomicilio() );
 		});
 		
 		this.tutor.add( new TutorAux() );		

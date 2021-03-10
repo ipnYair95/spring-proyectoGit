@@ -60,8 +60,7 @@ public class GrupoController {
 
 		Grupo grupoDb = null;
 
-		try {			
-			
+		try {						
 
 			grupoDb = this.grupoService.buscarPorId(id);
 

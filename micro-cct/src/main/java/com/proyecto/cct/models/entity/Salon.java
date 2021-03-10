@@ -10,7 +10,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
-import com.fasterxml.jackson.annotation.JsonIgnore; 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -40,7 +41,7 @@ public class Salon {
 	private List<Grupo> grupos;
 
 	@ManyToOne
-	@JsonIgnore
+	@JsonIgnoreProperties( "salones" )
 	private CentroDeTrabajo centroDeTrabajo;
 
 	public String getId() {

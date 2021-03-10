@@ -18,6 +18,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
@@ -39,12 +41,36 @@ import com.proyecto.alumnos.validadores.ResponsableValid;
 
 @Entity 
 @Table( name = "alumno" )
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-@JsonIgnoreProperties( value = {"domicilio","tutores"}, allowGetters = true, allowSetters = true)
-public class Alumno extends Persona implements Serializable{
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id", scope = Alumno.class)
+public class Alumno implements Serializable{
 	
-	private static final long serialVersionUID = 1L;	
+	private static final long serialVersionUID = 1L;
 	
+	@Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", updatable = false, nullable = false)
+    protected Long id;
+	 
+	@NotBlank
+	protected String nombre;	
+	
+	@NotBlank
+	protected String apePaterno;
+	
+	@NotBlank
+	protected String apeMaterno;
+	
+	@NotNull
+	@Temporal(TemporalType.DATE  )
+	protected Date fechaNacimiento;
+	
+	@Column( unique = true )
+	@NotBlank
+	@CurpValid
+	protected String curp;	
+	
+	@NotBlank
+	protected String sexo;
 	 
 	
 	@NotBlank
@@ -80,12 +106,11 @@ public class Alumno extends Persona implements Serializable{
 	@ResponsableValid
 	private List<Tutor > tutores = new ArrayList<>();  
 	
-	@OneToMany(  cascade = CascadeType.ALL ,orphanRemoval = true, fetch = FetchType.LAZY )
+	@OneToMany( fetch = FetchType.LAZY )
 	@JoinColumn( name = "alumno_id" )
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private List<Historial> historiales;	
 	
-	private boolean inscritoEscuela;
 
 	///////////////////7
 	
@@ -172,9 +197,6 @@ public class Alumno extends Persona implements Serializable{
 	}
 	
 	
-	
-	
-	
 	public List<Historial> getHistoriales() {
 		return historiales;
 	}
@@ -182,35 +204,87 @@ public class Alumno extends Persona implements Serializable{
 
 	public void setHistoriales(List<Historial> historiales) {
 		this.historiales = historiales;
-	}
+	}	
+	
+	
 	
 	
 
 
-	public boolean isInscritoEscuela() {
-		return inscritoEscuela;
+	public String getNombre() {
+		return nombre;
 	}
 
 
-	public void setInscritoEscuela(boolean inscritoEscuela) {
-		this.inscritoEscuela = inscritoEscuela;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+
+	public String getApePaterno() {
+		return apePaterno;
+	}
+
+
+	public void setApePaterno(String apePaterno) {
+		this.apePaterno = apePaterno;
+	}
+
+
+	public String getApeMaterno() {
+		return apeMaterno;
+	}
+
+
+	public void setApeMaterno(String apeMaterno) {
+		this.apeMaterno = apeMaterno;
+	}
+
+
+	public Date getFechaNacimiento() {
+		return fechaNacimiento;
+	}
+
+
+	public void setFechaNacimiento(Date fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
+	}
+
+
+	public String getCurp() {
+		return curp;
+	}
+
+
+	public void setCurp(String curp) {
+		this.curp = curp;
+	}
+
+
+	public String getSexo() {
+		return sexo;
+	}
+
+
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
 	}
 
 
 	public void replaceAllAttributes( Alumno alumno ) {
 		
-		super.nombre = alumno.getNombre();
-		super.apePaterno = alumno.getApePaterno();
-		super.apeMaterno = alumno.getApeMaterno();
-		super.fechaNacimiento = alumno.getFechaNacimiento();
-		super.curp = alumno.getCurp();
-		super.sexo = alumno.getSexo();
+		this.nombre = alumno.getNombre();
+		this.apePaterno = alumno.getApePaterno();
+		this.apeMaterno = alumno.getApeMaterno();
+		this.fechaNacimiento = alumno.getFechaNacimiento();
+		this.curp = alumno.getCurp();
+		this.sexo = alumno.getSexo();
 		
 		this.peso = alumno.getPeso();
 		this.estatura = alumno.getEstatura();
 		this.tipoSangre = alumno.getTipoSangre();
 		this.usaLentes = alumno.isUsaLentes();	
-		this.domicilio.replaceAllAttributes( alumno.getDomicilio() );
+		this.domicilio.replaceAllAttributes( alumno.getDomicilio() == null ? new Domicilio() : alumno.getDomicilio() );
 		
 	}
 	

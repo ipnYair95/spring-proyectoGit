@@ -13,5 +13,8 @@ public interface HistorialService {
 	public Historial buscarPorId(Long id);
 	
 	public void eliminar(Long id);
+	
+	
+	public List<Historial> listarAlumnosByGrupo( Long idGrupo );
 
 }

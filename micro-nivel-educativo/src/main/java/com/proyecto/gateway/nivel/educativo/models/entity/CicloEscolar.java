@@ -56,7 +56,7 @@ public class CicloEscolar {
 	private List<Grado> grados = new ArrayList<>();
 	
 	@ManyToOne
-	@JsonIgnore
+	@JsonIgnoreProperties( "ciclosEscolares" )
 	private Carrera carrera;
 
 	

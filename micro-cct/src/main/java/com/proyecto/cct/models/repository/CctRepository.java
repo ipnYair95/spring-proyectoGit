@@ -9,5 +9,8 @@ import com.proyecto.cct.models.entity.CentroDeTrabajo;
 
 public interface CctRepository extends JpaRepository<CentroDeTrabajo, Long> {	
 	
-
+	public Optional<CentroDeTrabajo> findByCct(String cct);
+	
+	
+	
 }

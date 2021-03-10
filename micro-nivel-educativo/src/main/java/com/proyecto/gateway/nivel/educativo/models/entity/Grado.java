@@ -45,7 +45,7 @@ public class Grado {
 	private List<Asignatura> asignaturas;
 	
 	@ManyToOne
-	@JsonIgnore
+	@JsonIgnoreProperties( "grados" ) 
 	private CicloEscolar cicloEscolar;
 
 	public Grado() {

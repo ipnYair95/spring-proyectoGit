@@ -11,6 +11,8 @@ public interface CctService {
 	public CentroDeTrabajo guardar(CentroDeTrabajo centroDeTrabajo);
 
 	public CentroDeTrabajo buscarPorId(Long id);
+	
+	public CentroDeTrabajo buscarPörCct( String cct );
 
 	public void eliminar(Long id);
 	

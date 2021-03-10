@@ -99,7 +99,7 @@ public class ReportService {
 		datos.put("param", ruta.getAbsolutePath() );
 		datos.put("param2", ruta2.getAbsolutePath() ); 
 		
-		log.info( "Campos nombre " + alumnoJasper.getTutor().get(0).getNombre() );
+		log.info( "Campos nombre " + alumno.getTutores().get(0).getNombre() );
  
 		JasperPrint jp = JasperFillManager.fillReport(jr, datos, ds);
 

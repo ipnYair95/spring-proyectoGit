@@ -17,11 +17,14 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.proyecto.alumnos.validadores.CurpValid;
 
 //@Entity
 //@Inheritance( strategy = InheritanceType.JOINED)
 @MappedSuperclass //herencia para crear tablas
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id", scope = Persona.class)
 public class Persona {	
 	
 	@Id

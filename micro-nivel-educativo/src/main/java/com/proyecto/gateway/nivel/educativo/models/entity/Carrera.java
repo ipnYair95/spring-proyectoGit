@@ -39,7 +39,7 @@ public class Carrera {
 	private List<CicloEscolar> ciclosEscolares = new ArrayList<>();
 	
 	@ManyToOne
-	@JsonIgnore
+	@JsonIgnoreProperties( "carreras" )
 	private Nivel nivel;	
 	
 

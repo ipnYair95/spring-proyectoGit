@@ -40,8 +40,15 @@ public class CctServiceImpl  implements CctService {
 	}
 
 	@Override
+	@Transactional( readOnly = true )
 	public boolean existeEscuela(Long id) {
 		return this.cr.existsById(id);
+	}
+
+	@Override
+	@Transactional( readOnly = true )
+	public CentroDeTrabajo buscarPörCct(String cct) {
+		return this.cr.findByCct(cct).orElse(null);
 	}
 
 

@@ -206,7 +206,8 @@ public class AlumnoController {
 		// persistir
 		if (alumno.getDomicilio() == null) {
 			alumno.setDomicilio(new Domicilio());
-		}
+		}		
+		
 
 		try{		
 			
@@ -254,7 +255,8 @@ public class AlumnoController {
 		if (validacion.hasErrors()) {
 			log.info("error");
 			return validarConLista(alumnos.size(), validacion);
-		}
+		}	
+		
 
 		List<Alumno> alumnosDb = this.as.guardarVarios(alumnos.getValues());
 		return ResponseEntity.ok().body(alumnosDb);
@@ -304,6 +306,12 @@ public class AlumnoController {
 			
 			// realizamos los cambios en la relacion alumno -> domicilio
 			alumnoDb = this.as.buscarPorId(id);
+
+			if( alumnoDb.getDomicilio() == null ) {
+				log.info("nulo");
+				alumnoDb.setDomicilio( new Domicilio() );
+			}
+			
 			alumnoDb.replaceAllAttributes(alumno);
 
 			// Comparamos los tutores que se tienen que eliminar		

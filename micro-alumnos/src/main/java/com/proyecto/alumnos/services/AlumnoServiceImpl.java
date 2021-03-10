@@ -26,7 +26,7 @@ public class AlumnoServiceImpl implements AlumnoService {
 	@Override
 	@Transactional( readOnly = true )
 	public List<Alumno> listar() {
-		return  this.ar.findAllFetch();
+		return  this.ar.findAll();
 	}
 
 	@Override
@@ -62,10 +62,7 @@ public class AlumnoServiceImpl implements AlumnoService {
 	@Transactional( readOnly = true )
 	public Alumno buscarPorCurp(String curp) {
 
-		Alumno alumnoDb = this.ar.findByCurp(curp);
-		alumnoDb.setDomicilio(null);
-		alumnoDb.setTutores(null);
-		
+		Alumno alumnoDb = this.ar.findByCurp(curp);		
 		return this.ar.findByCurp(curp);
 	}
 

@@ -54,7 +54,7 @@ public class CctControler {
 	}
 
 	@GetMapping("/buscar-por-id/{id}")
-	public ResponseEntity<?> buscarPorCct(@PathVariable Long id) {
+	public ResponseEntity<?> buscarPorId(@PathVariable Long id) {
 
 		CentroDeTrabajo ctDb = null;
 
@@ -72,6 +72,28 @@ public class CctControler {
 
 		return ResponseEntity.ok().body(ctDb);
 
+	}
+	
+	@GetMapping("/buscar-por-cct/{cct}")
+	public ResponseEntity<?> buscarPorCct( @PathVariable String cct ){
+		
+		CentroDeTrabajo cctDb = null;
+		
+		try {
+			
+			cctDb = this.cctService.buscarPörCct(cct);
+
+			if (cctDb == null) {
+				return this.enviarMensaje("La CCT no existe", HttpStatus.NOT_FOUND);
+			}
+			
+			
+		}catch (DataAccessException e) {
+			return this.enviarMensaje("Error interno",  HttpStatus.INTERNAL_SERVER_ERROR );
+		}
+		
+		return ResponseEntity.ok().body(cctDb);
+		
 	}
 
 	@PostMapping("/crear")

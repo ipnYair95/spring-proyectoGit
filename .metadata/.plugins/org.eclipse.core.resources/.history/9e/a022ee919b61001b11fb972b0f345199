@@ -1,5 +1,0 @@
-package com.proyecto.cct.services.externos;
-
-public interface NivelEscuelaService {
-
-}

@@ -40,4 +40,9 @@ public class HistorialServiceImpl implements HistorialService {
 		
 	}
 
+	@Override
+	public List<Historial> listarAlumnosByGrupo(Long idGrupo) {
+		return this.hr.listarAlumnosByGrupo( idGrupo );
+	}
+
 }

@@ -26,6 +26,7 @@ import com.proyecto.alumnos.validadores.CurpValid;
 
 @Entity
 @Table(name = "tutor")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id", scope = Tutor.class)
 public class Tutor implements Serializable {
 		
 	private static final long serialVersionUID = 1L;
