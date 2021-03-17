@@ -5,6 +5,8 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -23,7 +25,8 @@ import javax.persistence.OneToMany;
 public class Salon {
  
 	@Id	
-	private String id;
+	@GeneratedValue( strategy = GenerationType.IDENTITY )
+	private Long id;
 	
 	@NotBlank
 	@Pattern(regexp = "^([^a-z\\s]+ ?)+$", message = "Solo mayusculas y numeros")
@@ -41,14 +44,15 @@ public class Salon {
 	private List<Grupo> grupos;
 
 	@ManyToOne
+	//@JsonIgnore
 	@JsonIgnoreProperties( "salones" )
 	private CentroDeTrabajo centroDeTrabajo;
 
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	

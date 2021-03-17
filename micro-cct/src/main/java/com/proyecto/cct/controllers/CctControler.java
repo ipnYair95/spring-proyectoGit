@@ -34,9 +34,6 @@ public class CctControler {
 	@Autowired
 	private CctService cctService;
 
-	@Autowired
-	private ContadorClient contadorClient;
-
 	// Lista de respuestas
 	Map<String, Object> respuesta = new HashMap<>();
 
@@ -47,9 +44,9 @@ public class CctControler {
 	public ResponseEntity<?> listar() {
 		return ResponseEntity.ok().body(this.cctService.listar());
 	}
-	
+
 	@GetMapping("/existe-escuela/{id}")
-	public boolean existeEscuela( @PathVariable Long id ){
+	public boolean existeEscuela(@PathVariable Long id) {
 		return this.cctService.existeEscuela(id);
 	}
 
@@ -73,27 +70,26 @@ public class CctControler {
 		return ResponseEntity.ok().body(ctDb);
 
 	}
-	
+
 	@GetMapping("/buscar-por-cct/{cct}")
-	public ResponseEntity<?> buscarPorCct( @PathVariable String cct ){
-		
+	public ResponseEntity<?> buscarPorCct(@PathVariable String cct) {
+
 		CentroDeTrabajo cctDb = null;
-		
+
 		try {
-			
+
 			cctDb = this.cctService.buscarPörCct(cct);
 
 			if (cctDb == null) {
 				return this.enviarMensaje("La CCT no existe", HttpStatus.NOT_FOUND);
 			}
-			
-			
-		}catch (DataAccessException e) {
-			return this.enviarMensaje("Error interno",  HttpStatus.INTERNAL_SERVER_ERROR );
+
+		} catch (DataAccessException e) {
+			return this.enviarMensaje("Error interno", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-		
+
 		return ResponseEntity.ok().body(cctDb);
-		
+
 	}
 
 	@PostMapping("/crear")
@@ -108,14 +104,15 @@ public class CctControler {
 
 		try {
 
-			ct.getSalones().forEach(salon -> {
-
-				LocalDate fecha = LocalDate.now();
-				String fechaString = fecha.getDayOfYear() + "";
-				String id = fechaString + contadorClient.getContadorIncrementar().toString();
-				salon.setId(id);
-
-			});
+			/*
+			 * ct.getSalones().forEach(salon -> {
+			 * 
+			 * LocalDate fecha = LocalDate.now(); String fechaString = fecha.getDayOfYear()
+			 * + ""; String id = fechaString +
+			 * contadorClient.getContadorIncrementar().toString(); salon.setId(id);
+			 * 
+			 * });
+			 */
 
 			ctDb = this.cctService.guardar(ct);
 
@@ -147,7 +144,7 @@ public class CctControler {
 			ctDb.replaceAll(ct);
 
 			if (ct.getSalones().size() == 0) {
-				ctDb.getSalones().clear();				
+				ctDb.getSalones().clear();
 				this.cctService.guardar(ctDb);
 				return enviarMensaje("CCT actualizado", HttpStatus.OK);
 
@@ -155,10 +152,11 @@ public class CctControler {
 
 				List<Salon> salonesTemporal = ctDb.getSalones();
 
-				for (Salon salonDb : salonesTemporal) {
-					if (!(ct.getSalones().contains(salonDb))) {
-						ctDb.removeSalon(salonDb);
-					}
+				for( int i  =  0; i < salonesTemporal.size(); i++ ) {
+					
+					 if( !ct.getSalones().contains( salonesTemporal.get(i) ) ) {
+						 ctDb.getSalones().remove( salonesTemporal.get(i) );
+					 }
 				}
 
 			}
@@ -166,26 +164,20 @@ public class CctControler {
 			for (Salon salon : ct.getSalones()) {
 
 				if (ctDb.getSalones().size() != 0) {
-
-					if (ctDb.getSalones().contains(salon)) {
-
+					
+					if( salon.getId() != null ) {
+						
 						ctDb.getSalones().forEach(salonDb -> {
-							if (salonDb.getId().equals(salon.getId())) {
+							if (salonDb.getId() ==  salon.getId()) {
 								salonDb.replaceAll(salon);
 								return;
 							}
-
 						});
-
-					}
-				} else {
-
-					LocalDate fecha = LocalDate.now();
-					String fechaString = fecha.getDayOfYear() + "";
-					String idSalon = fechaString + contadorClient.getContadorIncrementar().toString();
-					salon.setId(idSalon);
-					ctDb.addSalon(salon);
-				}
+						
+					}else {						
+						ctDb.addSalon(salon); 						
+					} 
+				} 
 			}
 
 			this.cctService.guardar(ctDb);
